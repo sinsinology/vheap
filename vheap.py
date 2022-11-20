@@ -35,7 +35,7 @@ def aiohttp_server():
 
         with open('{}static/js/'.format(vPath) + request.match_info['name']) as f:
             # Fixes JS files GHOST, GPORT before returning (To avoid CORS errors)
-            return web.Response(text=f.read().replace("GHOST", ghost).replace("GPORT",gport),
+            return web.Response(text=f.read().replace("GHOST", ghost).replace("GPORT",str(gport)),
                                 content_type='text/javascript');
 
     '''
